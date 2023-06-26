@@ -9,10 +9,8 @@ LABEL description="MBTA Keycloak"
 ENV INSTALL_FOLDER=/tmp/files/
 
 USER root
-# install system tools and update system
-RUN ["/bin/bash", "-c", "microdnf update -y && microdnf install -y vim"]
-# remove root password
-# RUN ["/bin/bash", "-c", "passwd --delete root"]
+# Update system
+RUN yum update -y
 
 USER jboss
 
