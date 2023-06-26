@@ -1,4 +1,6 @@
-FROM jboss/keycloak:15.0.2
+ARG KEYCLOAK_VERSION=16.1.1
+
+FROM quay.io/keycloak/keycloak:${KEYCLOAK_VERSION}
 
 LABEL maintainer="support@integrationeye.com"
 LABEL builder="Integsoft s.r.o"
@@ -8,9 +10,7 @@ ENV INSTALL_FOLDER=/tmp/files/
 
 USER root
 # install system tools and update system
-RUN ["/bin/bash", "-c", "microdnf update -y && microdnf install -y vim"]
-# remove root password
-# RUN ["/bin/bash", "-c", "passwd --delete root"]
+RUN ["/bin/bash", "-c", "microdnf update -y"]
 
 USER jboss
 
