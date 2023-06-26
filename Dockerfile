@@ -1,4 +1,6 @@
-FROM jboss/keycloak:15.0.2
+ARG KEYCLOAK_VERSION=21.1.1
+
+FROM quay.io/keycloak/keycloak:${KEYCLOAK_VERSION}
 
 LABEL maintainer="support@integrationeye.com"
 LABEL builder="Integsoft s.r.o"
